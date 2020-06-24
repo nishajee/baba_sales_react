@@ -1,0 +1,236 @@
+.app-theme-white .app-page-title {
+    background: rgb(255, 255, 255);
+}
+.vertical-nav-menu li a {
+display: block;
+line-height: 2.4rem;
+height: 2.4rem;
+padding: 0 1.5rem 0 45px;
+position: relative;
+border-radius: .25rem;
+color: #ffffff;
+white-space: nowrap;
+transition: all .2s;
+margin: .1rem 0;
+font-size: 17px;
+font-family: 'Bree Serif', serif;
+}
+.app-sidebar__heading {
+    text-transform: uppercase;
+    font-size: .8rem;
+    margin: .75rem 0;
+    font-weight: bold;
+    color: #CDDC39;
+    white-space: nowrap;
+    position: relative;
+}
+.vertical-nav-menu ul>li>a {
+    color: #ffffff;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1.5rem 0;
+}
+.vertical-nav-menu li a:hover {
+    background: #e0f3ff47;
+    text-decoration: none;
+}
+.app-sidebar.sidebar-shadow {
+    box-shadow: 7px 0 60px rgba(0, 0, 0, 0.54);
+}
+.fixed-header .app-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 7px 0 60px rgba(0, 0, 0, 0.54);
+}
+.app-main .app-main__inner {
+    padding: 30px 30px 0;
+    flex: 1;
+    background: #e7eaff;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    font-size: 14px;
+}
+.app-theme-white .app-footer .app-footer__inner,
+.app-theme-white .app-header {
+    background-image: linear-gradient(120deg, #03A9F4 0%, #3F51B5 100%) !important;
+}
+.app-theme-white .app-sidebar {
+    background-image: linear-gradient(135deg, #3F51B5 30%, #2196F3 100%) !important;
+}
+.app-header__logo .logo-src {
+    height: 23px;
+    width: 97px;
+ background: url('');
+
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    border-top: 2px solid #5377d1;
+    box-shadow: 0px 0px 0px #ffffff54;
+}
+hr.new2 {
+    border-top: 1px dashed #5377d1;
+}
+.table-bordered th, .table-bordered td {
+    border: 1px solid #bdbdbd;
+}
+.table th, .table td {
+    padding: .55rem;
+    vertical-align: top;
+    border-top: 1px solid #e9ecef;
+}
+.table-bordered thead th, .table-bordered thead td {
+    border-bottom-width: 1px;
+    background: #e6eaff;
+}
+.table thead th {
+    vertical-align: bottom;
+    border: 1px solid #bbbbbb;
+}
+.widget-chart .widget-numbers {
+    font-weight: bold;
+    font-size: 17px;
+    display: block;
+    line-height: 1;
+    margin: 1rem auto;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}hamburger-box
+.search-wrapper .input-holder .search-icon span::before {
+    width: 4px;
+    height: 11px;
+    left: 9px;
+    top: 13px;
+    border-radius: 2px;
+    background: #ffffff;
+}
+.search-wrapper .input-holder .search-icon span::after {
+    width: 14px;
+    height: 14px;
+    left: 4px;
+    top: 0;
+    border-radius: 16px;
+    border: 2px solid #ffffff;
+}
+.header-btn-lg .hamburger-inner, .header-btn-lg .hamburger-inner::before, .header-btn-lg .hamburger-inner::after {
+    background: #ffffff;
+}
+.app-wrapper-footer .app-footer .app-footer__inner {
+    border-left: #e9ecef solid 0px;
+}
+.app-main .app-main__inner {
+    padding: 30px 30px 0;
+    flex: 1;
+    background: #d9dfff;
+}
+.app-theme-white .app-page-title {
+    background: rgb(255, 255, 255);
+}
+
+.bg-night-fade {
+    background-image: radial-gradient(circle 248px at center, #3F51B5 0%, #3F51B5 47%, #162579 100%) !important;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #b7b7b7;
+    border-radius: .25rem;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+}
+.app-theme-white .app-page-title {
+    background: rgb(255, 255, 255);
+}
+.app-page-title .page-title-heading {
+    font-size: 1.25rem;
+    font-weight: 400;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    color: #3F51B5;
+}
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: .3rem;
+    outline: 0;
+    margin-top: 7em;
+}
+.modal-header, .modal-footer {
+    background: #e6eaff;
+}
+.card-title {
+        text-transform: uppercase;
+        color: rgba(2, 30, 101, 0.7);
+        font-weight: bold;
+        font-size: .88rem;
+    }
+    .divider {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: 1px;
+        overflow: hidden;
+        background: #3067c5;
+    }
+    label {
+        display: inline-block;
+        margin-bottom: .5rem;
+        font-weight: 600;
+        font-size: 14px;
+        color: #000;
+       
+    }
+    .app-page-title {
+        padding: 10px;
+        margin: -30px -29px 20px;
+        position: relative;
+    }
+    .app-theme-white.app-container {
+        background: #000000;
+        overflow: hidden;
+    }
+    .card.mb-3 {
+        margin-bottom: 20px !important;
+    }
+    table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting {
+    padding-right: 30px;
+    font-weight: 500;
+    color: #001f9a;
+    }
+    table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+        border-bottom-width: 0;
+        color: #000;
+    }
