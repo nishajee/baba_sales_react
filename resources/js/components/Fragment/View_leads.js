@@ -56,7 +56,7 @@ class View_leads extends Component {
     console.log(id);
     console.log('callled  view leads ');
     // axios.get(`/api/contact/${id}/edit`)
-    axios.get(`http://localhost/baba_sales/api/leads/${id}`)
+    axios.get(`http://localhost/baba_sales_react/api/leads/${id}`)
       .then(response => {
         this.setState({
           id: response.data.id,
@@ -91,28 +91,28 @@ class View_leads extends Component {
         })
       }).catch(err => console.log(err));
      
-      axios.get(`http://localhost/baba_sales/api/calls/${id}`)
+      axios.get(`http://localhost/baba_sales_react/api/calls/${id}`)
       .then(response => {
                this.setState({
           callsdata: response.data
         })
       }).catch(err => console.log(err));
   
-  axios.get(`http://localhost/baba_sales/api/tasks/${id}`)
+  axios.get(`http://localhost/baba_sales_react/api/tasks/${id}`)
   .then(response => {
            this.setState({
       tasksdata: response.data
     })
   }).catch(err => console.log(err));
 
-axios.get(`http://localhost/baba_sales/api/events/${id}`)
+axios.get(`http://localhost/baba_sales_react/api/events/${id}`)
 .then(response => {
          this.setState({
           eventdata: response.data
   })
 }).catch(err => console.log(err));
 
-axios.get(`http://localhost/baba_sales/api/email/${id}`)
+axios.get(`http://localhost/baba_sales_react/api/email/${id}`)
 .then(response => {
          this.setState({
           emaildata: response.data
@@ -139,7 +139,7 @@ axios.get(`http://localhost/baba_sales/api/email/${id}`)
                 <Col md={2}><h4>
                   <Link to={`/leads/${this.state.id}/edit`}><span style={{ color: "blue" }}><FaEdit /></span></Link></h4></Col></Row>
             </Card.Subtitle>
-            <p>{this.state.email} {" "} {this.state.mobile}</p>
+            <p>{this.state.email} {" "} {" "}  {this.state.mobile}</p>
 
             <b><p style={{ color: '#1E4CBD' }}>Status:  {" "} {this.state.lead_status}</p></b>
 
@@ -249,7 +249,7 @@ axios.get(`http://localhost/baba_sales/api/email/${id}`)
             <div className="col-md-6">
             
   <button type="button"  className="btn btn-primary pull-right" style={{
-                backgroundColor: 'teal', color: 'white'
+                backgroundColor: '#317eeb', color: 'white'
               }} data-toggle="modal" data-target="#myModal"> New call</button>
   
  
@@ -277,11 +277,11 @@ axios.get(`http://localhost/baba_sales/api/email/${id}`)
               }} data-toggle="modal" data-target="#myReminder">Add Reminder</button>
                  
               
-              <New_leadtask />
+              <New_leadtask cust_id={this.state.id} />
               <ModalExample cust_id={this.state.id}/>
-              <New_leadEvent />
-              <Lead_email />
-              <Add_leadReminder/>
+              <New_leadEvent cust_id={this.state.id} />
+              <Lead_email cust_id={this.state.id} />
+              <Add_leadReminder cust_id={this.state.id}/>
             </div>
           </div>
           <br />
@@ -307,13 +307,13 @@ axios.get(`http://localhost/baba_sales/api/email/${id}`)
                                
                                   <tr key={data.id}>
                                         <td>{data.subject}</td>
+                                        <td>{data.call_stage}</td>
+                                        <td>{data.call_purpose}</td>
+                                        <td>{data.call_details}</td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{this.state.first_name} {" "} {this.state.last_name}</td>
+                                        <td>{data.call_description}</td>
+                                        <td><Link to=""><span style={{ color: "blue" }}><FaEdit /></span></Link></td>
                                     </tr>
 
          ))
@@ -345,9 +345,9 @@ axios.get(`http://localhost/baba_sales/api/email/${id}`)
                                         <td>{task.subject}</td>
                                         <td>{task.due_date}</td>
                                         <td>{task.taskstatus}</td>
-                                        <td>{}</td>
+                                        <td>{this.state.first_name} {" "} {this.state.last_name}</td>
                                         <td>{task.task_description}</td>
-                                        <td></td>
+                                        <td><Link to=""><span style={{ color: "blue" }}><FaEdit /></span></Link></td>
                                         
                                     </tr>
                                 ))}
@@ -379,9 +379,9 @@ axios.get(`http://localhost/baba_sales/api/email/${id}`)
                                         <td>{event.start_date_time}</td>
                                         <td>{event.location}</td>
                                         <td></td>
-                                        <td>{this.state.first_name} {this.state.last_name}</td>
+                                        <td>{this.state.first_name} {" "} {this.state.last_name}</td>
                                         <td>{event.location}</td>
-                                         <td>{event.event_description}</td>
+                                         <td><Link to=""><span style={{ color: "blue" }}><FaEdit /></span></Link></td>
                                     </tr>
                                 ))}
                                 </tbody>
@@ -405,13 +405,13 @@ axios.get(`http://localhost/baba_sales/api/email/${id}`)
                                 <tbody>
                                 {Array.isArray(this.state.emaildata) && this.state.emaildata.map(email => (
                                     <tr>
-                                        <td>{this.state.first_name}{this.state.last_name}</td>
+                                    <td>{this.state.first_name} {" "} {this.state.last_name}</td>
                                         <td>{email.email}</td>
                                         <td>{email.subject}</td>
                                         <td>{email.message}</td>
                                         <td></td>
                                         <td>{email.email_description}</td>
-                                        <td></td>
+                                        <td><Link to=""><span style={{ color: "blue" }}><FaEdit /></span></Link></td>
                                         
                                     </tr>
                                 ))}
@@ -500,7 +500,7 @@ axios.get(`http://localhost/baba_sales/api/email/${id}`)
                 <Row>
                   <Col md={8}><h5 style={{ color: "grey", marginTop: "10px" }}><b>Attachments/Files</b></h5></Col>
                   <Col md={4}>
-                    <button type="button" className="btn btn-primary pull-right" style={{
+                    <button type="button"  style={{width:"120%"}}className="btn btn-primary pull-right" style={{
                       backgroundColor: '#317eeb',
                       color: 'white', marginTop: "10px"
                     }} data-toggle="modal" data-target="#attachment">Add Attachments</button>

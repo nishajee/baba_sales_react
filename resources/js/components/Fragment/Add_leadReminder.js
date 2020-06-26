@@ -19,7 +19,7 @@ class Note_leadtask extends Component {
       }
       handelFormSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost/baba_sales-master/baba_sales-master/api/leadReminder', {
+        axios.post('http://localhost/baba_sales_react/api/leadReminder', {
           reminder_name:this.state.reminder_name,
           reminder_date:this.state.reminder_date, 
           reminder_time:this.state.reminder_time, 
@@ -47,13 +47,13 @@ class Note_leadtask extends Component {
               <div className="modal-content">
 
 
-                <div className="modal-header" style={{ backgroundColor: "teal", color: "white" }}>
+                <div className="modal-header" style={{backgroundColor:"#abc7e4", color: "black" }}>
                   <h4 className="modal-title">Set Reminder</h4>
                   <button type="button" className="close" data-dismiss="modal">&times;</button>
                 </div>
 
 
-                <div className="alert alert-success modal-body">
+                <div className="modal-body">
                   <form onSubmit={this.handelFormSubmit}>
                     <div className="form-group">
                       <label>Reminder Name<span style={{color:"red"}}>*</span></label>

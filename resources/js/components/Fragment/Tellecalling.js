@@ -30,7 +30,7 @@ class Tellecalling extends Component {
 
     componentDidMount() {
         console.log('callled leads ');
-        axios.get('http://localhost/baba_sales/api/leads')
+        axios.get('http://localhost/baba_sales_react/api/leads')
             .then(response => {
                 this.setState({
                     leads: response.data,
@@ -71,7 +71,7 @@ class Tellecalling extends Component {
                                                 </div>
                                                 <div class="col-md-4">
                                                     <Link to={`/leads/${lead.id}/response`} style={{ color: "black",marginTop:"-5px",fontSize: "1.6em" }}><FaPhoneSquare /></Link>
-
+                                                    <Link to={`/leads/${lead.id}/demo-call`} style={{ color: "black",marginTop:"-5px",fontSize: "1.6em" }}>Demo call</Link>
                                                 </div>
                                                 
                                                

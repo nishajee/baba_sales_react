@@ -4,20 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>CRUD APP LARAVEL & REACT</title>
+        <title>BABA SALES</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="{{('css/app.css')}}"/>
+<link rel="stylesheet" type="text/css" href="{{('public/css/app.css')}}"/>
 
    
     </head>
     <body>
         <div class="container-fluid">
             <div id="app" style="overflow:hidden">
+          
         
             </div> 
         </div>
-        <script type="text/javascript" src="{{('js/app.js')}}"></script>
+        <script type="text/javascript" src="{{('public/js/app.js')}}"></script>
     </body>
 </html>

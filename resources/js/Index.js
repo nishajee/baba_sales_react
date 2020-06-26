@@ -90,8 +90,8 @@ class Index extends Component {
                             <div className="col-md-2">
 
                                 <div id="mySidenav" className="sidenav" style={{ width: "15%", marginTop: "65px", background: "#e9f4ff" }}>
-                                    <a href="" id="current"><Link to="/">Dasboard</Link></a>
-                                    <a href=""><Link to="/">Leads</Link></a>
+                                    <a href="" id="current"><Link to="/index">Dasboard</Link></a>
+                                    <a href=""><Link to="/index">Leads</Link></a>
                                   
                                    
                                     <p data-toggle="collapse" data-target="#demo" style={{ marginLeft:"1em",marginTop:"6px"}}>Tellicalling &nbsp; <FaAdn/></p>
@@ -99,7 +99,7 @@ class Index extends Component {
                                     <a href="#"><Link to="/tellicalling">Tellicalling</Link></a>
                                             <a href="#"><Link to="/tellicalling">Set a Demo Call</Link></a>
                                             <a href="#"><Link to="/tellicalling">Schedule</Link></a>
-                                            <a href="#"><Link to="/tellicalling">Reports</Link></a>
+                                            <a href="#"><Link to="">Reports</Link></a>
   </div>
 
                                 </div>
@@ -123,6 +123,7 @@ class Index extends Component {
                                 <Route path="/home" exact component={Home} />
                                 <Route path="/add" exact component={Add} />
                                 <Route path="/contact/:id/edit" exact component={Edit} />
+                                
 
                             </div>
                         </div>

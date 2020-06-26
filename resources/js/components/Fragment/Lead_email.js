@@ -51,13 +51,13 @@ class Lead_email extends Component {
                         <div className="modal-dialog">
                             <div className="modal-content">
 
-                                <div className="modal-header" style={{ backgroundColor: "teal", color: "white" }}>
+                                <div className="modal-header" style={{backgroundColor:"#abc7e4", color: "black" }}>
                                     <h4 className="modal-title">Send Email</h4>
                                     <button type="button" className="close" data-dismiss="modal">&times;</button>
                                 </div>
 
 
-                                <div className="alert alert-success modal-body">
+                                <div className="modal-body">
                                     <form onSubmit={this.handelFormSubmit}>
                                         <div className="form-group">
                                             <label>To<span style={{ color: "red" }}>*</span></label>

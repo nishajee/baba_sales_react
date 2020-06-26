@@ -46,7 +46,7 @@ class Add_leads extends Component {
   }
   handelFormSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost/baba_sales/api/leads', {
+    axios.post('http://localhost/baba_sales_react/api/leads', {
 
       lead_status: this.state.lead_status,
       lead_owner: this.state.lead_owner,

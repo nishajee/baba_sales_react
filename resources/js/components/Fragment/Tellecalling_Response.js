@@ -45,7 +45,7 @@ class Tellecalling_Response extends Component {
       
         event.preventDefault();
        
-        axios.post('http://localhost/baba_sales/api/response', {
+        axios.post('http://localhost/baba_sales_react/api/response', {
             time:this.state.timeFormate,
             date: this.state.dateFormate,
             lead_id: this.state.id,
@@ -65,7 +65,7 @@ class Tellecalling_Response extends Component {
     }
     handelSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost/baba_sales/api/Busyresponse', {
+        axios.post('http://localhost/baba_sales_react/api/Busyresponse', {
             date: this.state.dateFormate,
             time:this.state.timeFormate,
             skype:this.state.skype,
@@ -92,7 +92,7 @@ class Tellecalling_Response extends Component {
         console.log(id);
         console.log('callled  view leads calls ');
         // axios.get(`/api/contact/${id}/edit`)
-        axios.get(`http://localhost/baba_sales/api/leads/${id}`)
+        axios.get(`http://localhost/baba_sales_react/api/leads/${id}`)
             .then(response => {
                 this.setState({
                     id: response.data.id,
@@ -103,7 +103,7 @@ class Tellecalling_Response extends Component {
                 })
             }).catch(err => console.log(err));
 
-        axios.get(`http://localhost/baba_sales/api/Busyresponse/${id}`).then(response => {
+        axios.get(`http://localhost/baba_sales_react/api/Busyresponse/${id}`).then(response => {
             this.setState({
                 calls: response.data
 

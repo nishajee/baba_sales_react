@@ -37,7 +37,7 @@ class ModalExample extends Component {
   }
   handelFormSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost/baba_sales/api/calls', {
+    axios.post('http://localhost/baba_sales_react/api/calls', {
 
 
       cust_id: this.props.cust_id,

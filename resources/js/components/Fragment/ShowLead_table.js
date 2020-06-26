@@ -30,6 +30,8 @@ class ShowLead_table extends Component {
     super(props)
     this.state = {
       leads: [],
+      lead_status:'',
+      lead_owner:'',
       term:'',
       activePage:1,
       itemsCountPerPage:1,
@@ -38,8 +40,56 @@ class ShowLead_table extends Component {
     }
     this.serachHandeler= this.serachHandeler.bind(this);
     this.handlePageChange=this.handlePageChange.bind(this);
+    this.inputChange= this.inputChange.bind(this);
+    this.handelSearchSubmit = this.handelSearchSubmit.bind(this);
+    this.refresh = this.refresh.bind(this);
    
   }
+  refresh(){
+
+    axios.get('http://localhost/baba_sales_react/api/leads')
+    .then(response => {
+      this.setState({
+        leads: response.data.data,
+        lead_status:'',
+        lead_owner:'',
+        itemsCountPerPage:response.data.per_page,
+        totalItemsCount:response.data.total,
+        activePage:response.data.current_page
+      })
+    }).catch(err => console.log(err));
+
+  }
+
+
+  handelSearchSubmit(event) {
+    console.log("search working")
+    event.preventDefault();
+    axios.post('http://localhost/baba_sales_react/api/leadsByStatus', {
+     lead_status: this.state.lead_status,
+      
+    }).then(response => {
+      this.setState({
+        lead_status: this.state.lead_status,
+        leads: response.data,
+      
+      })
+      this.props.history.push('/');
+    }).catch(err => console.log(err));
+
+    axios.post('http://localhost/baba_sales_react/api/leadsByOwner', {
+      lead_owner: this.state.lead_owner,
+       
+     }).then(response => {
+       this.setState({
+        lead_owner: this.state.lead_owner,
+         leads: response.data,
+       
+       })
+       this.props.history.push('/');
+     })
+}
+
   serachHandeler(event){
     this.setState({term:event.target.value})
 
@@ -49,7 +99,7 @@ class ShowLead_table extends Component {
     console.log(`active page is ${pageNumber}`);
     this.setState({activePage: pageNumber});
    
-    axios.get('http://localhost/baba_sales/api/leads?page='+pageNumber)
+    axios.get('http://localhost/baba_sales_react/api/leads?page='+pageNumber)
     .then(response => {
       this.setState({
         leads: response.data.data,
@@ -59,10 +109,16 @@ class ShowLead_table extends Component {
       })
   });
 }
+inputChange(e) {
+  console.log("input type working");
+  this.setState({
+    [e.target.name]: e.target.value
+  });
+}
 
   componentDidMount() {
     console.log('callled leads ');
-    axios.get('http://localhost/baba_sales/api/leads')
+    axios.get('http://localhost/baba_sales_react/api/leads')
       .then(response => {
         this.setState({
           leads: response.data.data,
@@ -104,7 +160,7 @@ class ShowLead_table extends Component {
           <Breadcrumb.Item href="#" style={{ float: "right" }}>Home</Breadcrumb.Item>
           <Breadcrumb.Item href="#" style={{ float: "right" }}>
             Lead Management
-  </Breadcrumb.Item>
+         </Breadcrumb.Item>
           <Breadcrumb.Item active style={{ float: "right" }}>Leads</Breadcrumb.Item>
         </Breadcrumb>
 
@@ -116,6 +172,7 @@ class ShowLead_table extends Component {
 
         <div className="card">
           <div className="card-header">
+          <form onSubmit={this.handelSearchSubmit}>
             <Row>
 
               <Col>
@@ -130,45 +187,57 @@ class ShowLead_table extends Component {
                   callback={record => console.log(record)}
                 /> */}
               </Col>
+         
+             
               <Col>
-              <form>
-                <select id="select" className="selectpicker form-control">
+           
+             
+                <select id="select" className="selectpicker form-control"  onChange={this.inputChange}
+                    value={this.state.lead_status} name="lead_status">
                   <option style={{ width: "100%" }}>Lead Status</option>
                   <option style={{ width: "100%" }}>Unqualified</option>
-                  <option style={{ width: "100%" }}>New</option>
-                  <option style={{ width: "100%" }}>Working</option>
+                  <option style={{ width: "100%" }}>new</option>
+                  <option style={{ width: "100%" }}>working</option>
                   <option style={{ width: "100%" }}>Nurturing</option>
-                  <option style={{ width: "100%" }}>Qualified</option>
+                  <option style={{ width: "100%" }}>qualified</option>
                 </select>
-                </form>
+               
               </Col>
               <Col>
-                <select className="selectpicker form-control">
+                <select className="selectpicker form-control" >
                   <option style={{ width: "100%" }}>Lead Assign</option>
                   <option style={{ width: "100%" }}>Sumant</option>
+                  <option style={{ width: "100%" }}>Arun Kumar Giri</option>
+                  	
+
 
                 </select>
               </Col>
               <Col>
-                <select className="selectpicker form-control">
+                <select className="selectpicker form-control" onChange={this.inputChange}
+                    value={this.state.lead_owner} name="lead_owner">
                   <option style={{ width: "100%" }}>Lead Owner</option>
                   <option style={{ width: "100%" }}>Sumant</option>
+                  <option style={{ width: "100%" }}>Arun Kumar Giri</option>
+                  <option style={{ width: "100%" }}>Himanshu Singh</option>
+             
 
                 </select>
               </Col>
               <Col>
                 <Row>
 
-                  <Col><button className="btn btn-primary" style={{paddingRight:"6px"}}>Search</button></Col>
-                  <Col><button className="btn btn-primary">Reset</button></Col>
+                  <Col><button type="submit" className="btn btn-primary" style={{paddingRight:"6px"}}>Search</button></Col>
+                  <Col><button type="reset" className="btn btn-primary" onClick={this.refresh}>Reset</button></Col>
                   <Col>
            <Link to="/add-lead" className="btn btn-primary">Add</Link></Col>
                 </Row>
-
-
+              
+              
               </Col>
+              
             </Row>
-
+</form>
 
           </div>
 

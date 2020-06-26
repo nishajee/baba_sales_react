@@ -53,7 +53,7 @@ class Leadsedit extends Component {
         console.log(id);
         console.log('edit page working');
 
-        axios.get(`http://localhost/baba_sales/api/leads/${id}`).then(response => {
+        axios.get(`http://localhost/baba_sales_react/api/leads/${id}`).then(response => {
             this.setState({
                 first_name: response.data.first_name,
                 last_name: response.data.last_name,
@@ -85,7 +85,7 @@ class Leadsedit extends Component {
             })
         }).catch(err => console.log(err));
 
-        axios.get('http://localhost/baba_sales/api/users-details')
+        axios.get('http://localhost/baba_sales_react/api/users-details')
         .then(response => {
           this.setState({
             users: response.data
@@ -99,7 +99,7 @@ class Leadsedit extends Component {
         event.preventDefault();
         const leads = this.props.match.params.id
         console.log(leads);
-        axios.put(`http://localhost/baba_sales/api/leads/${leads}`, {
+        axios.put(`http://localhost/baba_sales_react/api/leads/${leads}`, {
             // name: this.state.name,
             // tel: this.state.tel
             first_name: this.state.first_name,
