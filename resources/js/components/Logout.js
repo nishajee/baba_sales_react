@@ -12,7 +12,7 @@ import {Link} from 'react-router-dom'
         return (
             <div>
                 <h1>You have been LoggedOut</h1>
-                <Link to="/">Login Again</Link>
+                <Link to="baba_sales_react/">Login Again</Link>
             </div>
         )
     }

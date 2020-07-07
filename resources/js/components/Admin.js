@@ -45,7 +45,7 @@ export class Admin extends Component {
         //     return <Redirect to="/"/>
         //   }
         if(this.state.redirect){
-            return <Redirect to="/"/>
+            return <Redirect to="/baba_sales_react/  "/>
           }
         return (
             <div>
