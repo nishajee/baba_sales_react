@@ -30,7 +30,7 @@ class Tellecalling extends Component {
 
     componentDidMount() {
         console.log('callled leads ');
-        axios.get('http://localhost/baba_sales_react/api/leads')
+        axios.get('api/all_leads')
             .then(response => {
                 this.setState({
                     leads: response.data,

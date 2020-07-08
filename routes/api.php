@@ -26,10 +26,11 @@ Route::post('login',[AccessTokenController::class,'issueToken'])
 
 
 Route::get('leads','APi_Controller\leads@leads');
+Route::get('all_leads','APi_Controller\leads@all_leads');
 Route::get('leads/{id}','APi_Controller\leads@leadById');
 Route::post('leads','APi_Controller\leads@leadSave');
-Route::put('leads/{country}','APi_Controller\leads@leadUpdate');
-Route::delete('leads/{country}','APi_Controller\leads@leadDelete');
+Route::put('leads/{lead}','APi_Controller\leads@leadUpdate');
+Route::delete('leads/{lead}','APi_Controller\leads@leadDelete');
 Route::post('leadsByStatus','APi_Controller\leads@searchByLeadStatus');
 Route::post('leadsByOwner','APi_Controller\leads@searchByLeadOwner');
 
@@ -94,3 +95,7 @@ Route::get('Busyresponse/{id}','APi_Controller\BusyResponseController@Busyrespon
 Route::post('Busyresponse','APi_Controller\BusyResponseController@BusyresponseSave');
 Route::put('Busyresponse/{bresp}','APi_Controller\BusyResponseController@BusyresponseUpdate');
 Route::delete('Busyresponse/{bresp}','APi_Controller\BusyResponseController@BusyresponseDelete');
+
+Route::prefix('/user')->group(function(){
+    Route::post('/Login','api\v1\loginController@login');
+});

@@ -23,7 +23,7 @@ class Lead_email extends Component {
     }
     handelFormSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost/baba_sales/api/emails', {
+        axios.post('/api/emails', {
             to:this.state.to,
             cc:this.state.cc,
             bcc:this.state.bcc,

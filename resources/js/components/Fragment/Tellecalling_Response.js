@@ -45,7 +45,7 @@ class Tellecalling_Response extends Component {
       
         event.preventDefault();
        
-        axios.post('http://localhost/baba_sales_react/api/response', {
+        axios.post('/api/response', {
             time:this.state.timeFormate,
             date: this.state.dateFormate,
             lead_id: this.state.id,
@@ -65,7 +65,7 @@ class Tellecalling_Response extends Component {
     }
     handelSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost/baba_sales_react/api/Busyresponse', {
+        axios.post('/api/Busyresponse', {
             date: this.state.dateFormate,
             time:this.state.timeFormate,
             skype:this.state.skype,
@@ -92,7 +92,7 @@ class Tellecalling_Response extends Component {
         console.log(id);
         console.log('callled  view leads calls ');
         // axios.get(`/api/contact/${id}/edit`)
-        axios.get(`http://localhost/baba_sales_react/api/leads/${id}`)
+        axios.get(`/api/leads/${id}`)
             .then(response => {
                 this.setState({
                     id: response.data.id,
@@ -103,7 +103,7 @@ class Tellecalling_Response extends Component {
                 })
             }).catch(err => console.log(err));
 
-        axios.get(`http://localhost/baba_sales_react/api/Busyresponse/${id}`).then(response => {
+        axios.get(`/api/response/${id}`).then(response => {
             this.setState({
                 calls: response.data
 
@@ -200,10 +200,14 @@ class Tellecalling_Response extends Component {
                                         style={{ marginRight: "10px", marginRight: "10px" }}  name="response_status"  />Busy With Someone Else.
                                 </label>  </div>
                             <div class="col-md-2">
-                                <label class="radio-inline" style={{ marginRight: "10px", marginRight: "10px" }}>
-                                    <input type="radio" value={this.state.response_status}
-                                        onChange={this.inputChange} name="response_status" data-target="#exampleModal" style={{ marginRight: "10px", marginRight: "10px" }} />Not Interested
-                                    </label>
+                            <label class="radio-inline" style={{ marginRight: "10px", marginRight: "10px" }}>
+               
+                            <input type="radio" value={this.state.response_status} value="Not Interested"
+                                onChange={this.inputChange} name="response_status"
+                                style={{ marginRight: "10px", marginRight: "10px" }} />Not Interested
+                                       </label>
+
+                                
 
 
                             </div>

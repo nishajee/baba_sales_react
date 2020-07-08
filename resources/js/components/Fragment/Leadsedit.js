@@ -53,7 +53,7 @@ class Leadsedit extends Component {
         console.log(id);
         console.log('edit page working');
 
-        axios.get(`http://localhost/baba_sales_react/api/leads/${id}`).then(response => {
+        axios.get(`/api/leads/${id}`).then(response => {
             this.setState({
                 first_name: response.data.first_name,
                 last_name: response.data.last_name,
@@ -85,7 +85,7 @@ class Leadsedit extends Component {
             })
         }).catch(err => console.log(err));
 
-        axios.get('http://localhost/baba_sales_react/api/users-details')
+        axios.get('/api/users')
         .then(response => {
           this.setState({
             users: response.data
@@ -99,7 +99,7 @@ class Leadsedit extends Component {
         event.preventDefault();
         const leads = this.props.match.params.id
         console.log(leads);
-        axios.put(`http://localhost/baba_sales_react/api/leads/${leads}`, {
+        axios.put(`/api/leads/${leads}`, {
             // name: this.state.name,
             // tel: this.state.tel
             first_name: this.state.first_name,
@@ -137,7 +137,7 @@ class Leadsedit extends Component {
                 // state_province: '', pincode: '', country: '', description: '',title:'',
                 alert_message:"success"
             })
-            // this.props.history.push('/');
+            this.props.history.push('/');
         }).catch(err => console.log(err));
     }
 
@@ -159,7 +159,7 @@ class Leadsedit extends Component {
                 </nav>
                 {this.state.alert_message=="success"?<SuccessAlert message={"Lead data Updated Successfully"}/>:null}
                 <Card>
-                    <Card.Header className="alert alert-success" style={{ color: "teal" }}>
+                    <Card.Header className="alert alert-primary" style={{ color: "teal" }}>
                         LEAD DETAILS
                     </Card.Header>
                     <Card.Body>
@@ -179,7 +179,7 @@ class Leadsedit extends Component {
                                             onChange={this.inputChange}
                                             label="Unqualified"
                                          id="formHorizontalRadios1"
-                                        />
+                                       />
                                     
                                  
                                         <Form.Check

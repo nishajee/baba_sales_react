@@ -19,7 +19,7 @@ class Note_leadtask extends Component {
       }
       handelFormSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost/baba_sales_react/api/leadReminder', {
+        axios.post('/api/leadReminder', {
           reminder_name:this.state.reminder_name,
           reminder_date:this.state.reminder_date, 
           reminder_time:this.state.reminder_time, 

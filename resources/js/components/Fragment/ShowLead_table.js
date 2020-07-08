@@ -29,8 +29,9 @@ class ShowLead_table extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      all_leads:[],
       leads: [],
-      lead_status:'',
+      lead_status:[],
       lead_owner:'',
       term:'',
       activePage:1,
@@ -47,7 +48,7 @@ class ShowLead_table extends Component {
   }
   refresh(){
 
-    axios.get('http://localhost/baba_sales_react/api/leads')
+    axios.get('api/leads')
     .then(response => {
       this.setState({
         leads: response.data.data,
@@ -65,25 +66,26 @@ class ShowLead_table extends Component {
   handelSearchSubmit(event) {
     console.log("search working")
     event.preventDefault();
-    axios.post('http://localhost/baba_sales_react/api/leadsByStatus', {
+    axios.post('api/leadsByStatus', {
      lead_status: this.state.lead_status,
       
     }).then(response => {
       this.setState({
+     
         lead_status: this.state.lead_status,
-        leads: response.data,
+        leads: response.data
       
       })
-      this.props.history.push('/');
+      
     }).catch(err => console.log(err));
 
-    axios.post('http://localhost/baba_sales_react/api/leadsByOwner', {
+    axios.post('api/leadsByOwner', {
       lead_owner: this.state.lead_owner,
        
      }).then(response => {
-       this.setState({
+      this.setState({
         lead_owner: this.state.lead_owner,
-         leads: response.data,
+         leads: response.data
        
        })
        this.props.history.push('/');
@@ -99,7 +101,7 @@ class ShowLead_table extends Component {
     console.log(`active page is ${pageNumber}`);
     this.setState({activePage: pageNumber});
    
-    axios.get('http://localhost/baba_sales_react/api/leads?page='+pageNumber)
+    axios.get('api/leads?page='+pageNumber)
     .then(response => {
       this.setState({
         leads: response.data.data,
@@ -118,7 +120,7 @@ inputChange(e) {
 
   componentDidMount() {
     console.log('callled leads ');
-    axios.get('http://localhost/baba_sales_react/api/leads')
+    axios.get('api/leads')
       .then(response => {
         this.setState({
           leads: response.data.data,

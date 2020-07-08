@@ -14,7 +14,7 @@ componentDidMount(){
   console.log(id);
    console.log('call History page working');
 
-  axios.get(`http://localhost/baba_sales/api/Busyresponse/${id}`).then(response => {
+  axios.get(`api/Busyresponse/${id}`).then(response => {
       this.setState({
         leads_response:response.data.leads_response,
           // lead_id:response.data.lead_id,

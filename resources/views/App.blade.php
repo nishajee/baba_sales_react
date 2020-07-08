@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- for login -->
-        <link rel="stylesheet" href="{{url('public/login2/node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-deep_purple.min.css" />
+        <!-- <link rel="stylesheet" href="{{url('public/login2/node_modules/bootstrap/dist/css/bootstrap.min.css')}}"> -->
+    <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-deep_purple.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{url('public/login2/css/style.css')}}">
 
@@ -15,7 +15,7 @@
 
     <script src="{{url('public/login2/node_modules/jquery/dist/jquery.min.js ')}}"></script>
     <script src="{{url('public/login2/node_modules/bootstrap/dist/js/bootstrap.min.js ')}}"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
  <!--  login end -->
 
         <title>BABA SALES</title>
@@ -146,6 +146,6 @@
         
             </div> 
         </div>
-        <script type="text/javascript" src="{{('public/js/app.js')}}"></script>
+        <script type="text/javascript" src="{{('js/app.js')}}"></script>
     </body>
 </html>

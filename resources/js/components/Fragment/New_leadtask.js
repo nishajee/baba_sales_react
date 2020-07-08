@@ -18,7 +18,7 @@ class Note_leadtask extends Component {
       }
       handelFormSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost/baba_sales_react/api/tasks', {
+        axios.post('/api/tasks', {
             task_description:this.state.task_description,
             subject:this.state.subject,
              due_date:this.state.due_date,

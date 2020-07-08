@@ -19,7 +19,7 @@ class Add_Notes extends Component {
       handelFormSubmit(event) {
         event.preventDefault();
         console.log(this.props.cust_id);
-        axios.post('http://localhost/baba_sales_react/api/notes', {
+        axios.post('/api/notes', {
             title:this.state.title, note:this.state.note, created_at:this.state.created_at,
             cust_id: this.props.cust_id,
             }).then(response => {

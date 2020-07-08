@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('{reactRoutes}', function () {
     return view('App');
-})->where('reactRoutes','^((?|api))*$');
+})->where('reactRoutes','^((?|api   ))*$');
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -22,4 +22,4 @@ Route::get('{reactRoutes}', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('/home', 'HomeController@index')->name('home');

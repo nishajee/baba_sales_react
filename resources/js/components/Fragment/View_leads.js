@@ -56,7 +56,7 @@ class View_leads extends Component {
     console.log(id);
     console.log('callled  view leads ');
     // axios.get(`/api/contact/${id}/edit`)
-    axios.get(`http://localhost/baba_sales_react/api/leads/${id}`)
+    axios.get(`/api/leads/${id}`)
       .then(response => {
         this.setState({
           id: response.data.id,
@@ -91,28 +91,28 @@ class View_leads extends Component {
         })
       }).catch(err => console.log(err));
      
-      axios.get(`http://localhost/baba_sales_react/api/calls/${id}`)
+      axios.get(`/api/calls/${id}`)
       .then(response => {
                this.setState({
           callsdata: response.data
         })
       }).catch(err => console.log(err));
   
-  axios.get(`http://localhost/baba_sales_react/api/tasks/${id}`)
+  axios.get(`/api/tasks/${id}`)
   .then(response => {
            this.setState({
       tasksdata: response.data
     })
   }).catch(err => console.log(err));
 
-axios.get(`http://localhost/baba_sales_react/api/events/${id}`)
+axios.get(`/api/events/${id}`)
 .then(response => {
          this.setState({
           eventdata: response.data
   })
 }).catch(err => console.log(err));
 
-axios.get(`http://localhost/baba_sales_react/api/email/${id}`)
+axios.get(`/api/email/${id}`)
 .then(response => {
          this.setState({
           emaildata: response.data

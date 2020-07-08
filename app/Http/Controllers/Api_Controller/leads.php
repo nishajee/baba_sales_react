@@ -8,6 +8,10 @@ use App\Leaddetail_api;
 
 class leads extends Controller
  {
+    function all_leads () {
+       
+      return response()->json( Leaddetail_api::get(), 200 );
+  }
     function leads() {
           return response()->json( Leaddetail_api::paginate(5), 200 );
         // return response()->json( Leaddetail_api::get(), 200 );
@@ -44,8 +48,10 @@ class leads extends Controller
 
     public function leadUpdate( Request $request, Leaddetail_api $lead )
  {
-        $lead->update( $request->all() );
-        return response()->json( $lead, 200 );
+     
+        $lead->update($request->all());
+       
+        return response()->json($lead, 200 );
     }
 
     public function leadDelete( Request $request, Leaddetail_api $lead )

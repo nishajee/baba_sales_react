@@ -18,7 +18,7 @@ class Add_attachment extends Component {
     }
     handelFormSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost/baba_sales_react/api/attachments', {
+        axios.post('/api/attachments', {
             title: this.state.title, attachment: this.state.attachment, created_at: this.state.created_at,
         }).then(response => {
             this.setState({
